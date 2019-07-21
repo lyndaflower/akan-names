@@ -13,5 +13,5 @@ I have used bootrsap to style page and javascript.
 ## Support and contact details
 an question you can used E-mail : umurerwalynda@gmail.com}
 
-Copyright (c) {2019} **{Lynda Flower}**
+Copyright(c)2019**Lynda Flower**
   
