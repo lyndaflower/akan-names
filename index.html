@@ -120,6 +120,32 @@ form {
                 <p>Copyright(C)2019</p>
             </div>
     </div>
+    <script>
+            function add() {
+        var mm = parseInt("Enter the month:");
+        var yy =parseInt("Enter the year:");
+        var dd =parseInt("Enter a day: ");
+        var cc =(yy-1)/100+1;
+    
+        var female="female";
+        var male="male";
+        var maleName = ["Kwasi", "Kwandwo", "Kwabena", "kwaku", "yaw", "Kofi", "Kwame"];
+        var femaleName = ["Akosua", "Adwoa", "Abenna", "Akua", "Yaa", "Afua", "Ama"];
+        var week =["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sutarday", "Sunday"];
+        var months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "november", "december"];
+    
+        var result=(((cc/4) -2*CC-1) + ((5*yy/4)) + ((26*(mm+1)/10)) + dd) %7;
+        if (dd<=0 || dd>31) {
+            alert("Invalid day!")
+        }
+        if ( mm<= 0 || mm > 12) {
+            alert("Invalid month!")
+        }
+        if (yy <1900) {
+            ("invalid year")
+        }
+            }
+        </script>
     
 </body>
 </html>
