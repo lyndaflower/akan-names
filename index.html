@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-    <title>Web-paget</title>
+    <title>Web-page</title>
     <style type="text/css">
     body {
     background-image: url("https://images.pexels.com/photos/172276/pexels-photo-172276.jpeg");
@@ -39,10 +39,10 @@ form {
     </style>
 </head>
 <body>
+    <div class="jumbotron" style="background-color:rgb(94, 43, 8) ; color: aliceblue; text-align: center;" !important>
+         <h1>Akan soul names </h1>
+    </div>
     <div class="container">
-        <div class="jumbotron" style="background-color:rgb(94, 43, 8) ; color: aliceblue; text-align: center;" !important>
-                <h1>Akan soul names </h1>
-        </div>
         <div class="row">
                 <div class="col-md-6" style="padding-block-start : 40px" !important>
                     <p><strong>Akan people of Ghana </strong> frequently name their children after the day of the week they were born and the order in which 
@@ -100,53 +100,90 @@ form {
         </div>
         <form>
                 <p>Click on your gender</p>
-                <input type="radio" name="gender" value="male"> Male<br>
-                <input type="radio" name="gender" value="female"> Female<br>
+                <input type="radio" name="gender" value="Male" > Male<br>
+                <input type="radio" name="gender" value="Female"> Female<br>
                 <p>Enter date</p>
-                <input type="text" name="text" size="2" style="color :black">
+                <input type="text" name="text" size="2" id ="day" style="color :black">
                 <p>Enter month</p>
-                <input type="text" name="month" size="4" style="color :black">
+                <input type="text" name="month" size="4" id ="month" style="color :black">
                 <p>Enter a year</p>
-                <input type="text" name="year" size="6"style="color :black"S>
+                <input type="text" name="year" size="6"id ="year" style="color :black">
                 <br>
-                <input type="button" onclick="myFunction()" value="Submit" style="color :black" !important>
-                <p>Date of birth : <input type="text" name="result" style="color :black"></p>
-                <p>Akan name : <input type="text" name="result1" style="color :black"></p>
-                <p id="result"></p>
+                <button type="submit" element.onClick="myFunction()" value="Submit" style="color :black;" !important>submit</button>
+                <input type="reset" value="restart" style="color : rgb(66, 88, 66)">
+                <p id="result" ></p>
         </form>
         <br>
-        <br>
+        <br> 
     </div>
     <div class="footer">
             <p>Copyright(C)2019</p>
     </div>
    
     <script>
-            function add() {
-        var mm = parseInt("Enter the month:");
-        var yy =parseInt("Enter the year:");
-        var dd =parseInt("Enter a day: ");
-        var cc =(yy-1)/100+1;
-    
-        var female="female";
-        var male="male";
-        var maleName = ["Kwasi", "Kwandwo", "Kwabena", "kwaku", "yaw", "Kofi", "Kwame"];
-        var femaleName = ["Akosua", "Adwoa", "Abenna", "Akua", "Yaa", "Afua", "Ama"];
-        var week =["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sutarday", "Sunday"];
-        var months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "november", "december"];
-    
-        var result=(((cc/4) -2*CC-1) + ((5*yy/4)) + ((26*(mm+1)/10)) + dd) %7;
-        if (dd<=0 || dd>31) {
-            alert("Invalid day!")
-        }
-        if ( mm<= 0 || mm > 12) {
-            alert("Invalid month!")
-        }
-        if (yy <1900) {
-            ("invalid year")
-        }
-            }
-        </script>
+            
+    function myFunction (){
+var mm = parseInt(document.getElementById("month").value);
+var yy = parseInt(document.getElementById("year").value);
+var dd = parseInt(document.getElementById("day").value);
+var cc = (yy-1)/100+1;
+var result = parseInt((((cc/4) -2*cc-1) + ((5*yy/4) ) + ((26*(mm+1)/10)) + dd )% 7);
+var gender = document.querySelector('input[name="gender"]:checked').value;
+var maleName = ["Kwasi", "Kwandwo", "Kwabena", "kwaku", "yaw", "Kofi", "Kwame"];
+var femaleName = ["Akosua", "Adwoa", "Abenna", "Akua", "Yaa", "Afua", "Ama"];
+var week =["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sutarday"];
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December"];
+
+if ((dd<=0) || (dd>31)) {
+        prompt("Invalid day");
+}
+if ((mm<=0) || (mm> 12)) {
+       prompt("Invalid month");
+}
+if ((gender == "Female") && (result == 0)) {
+             document.getElementById("result").innerHTML = "you born on sunday with akan name of 'Akosua' ";
+}
+if (( gender == "Female") && (result == 1)) {
+        document.getElementById("result").innerHTML = "you born on monday with akan name of 'Adwoa' ";
+}
+if  (( gender == "Female") && (result == 2)){
+        document.getElementById("result").innerHTML = "you born on tuesday with akan name'Abenna'";
+}
+if ((gender == "Female") && (result == 3)) {
+        document.getElementById("result").innerHTML = "you born on wednesday with akan name 'Akua'";
+}
+if  ((gender == "Female") && (result == 4)) {
+        document.getElementById("result").innerHTML = "you born on thursday with akan name 'Yaa'";
+}
+if ((gender == "Female") && (result == 5)) {
+        document.getElementById("result").innerHTML = "you born on friday with akan name 'Afua'";
+}
+if ((gender == "Female") && (result == 6)) {
+        document.getElementById("result").innerHTML = "you born on saturday with akan name 'Ama'";
+}
+if ((gender == "Male") && (result == 0)) {
+        document.getElementById("result").innerHTML = "you born on sunday with akan name'Kwasi'";
+}
+if ((gender == "Male") && (result == 1)) {
+        document.getElementById("result").innerHTML = "you born on monday with akan name'Kwadwo'";
+}
+if ((gender == "Male") && (result == 2)) {
+        document.getElementById("result").innerHTML = "you born on tuesday with akan name'Kwabene'";
+}
+if ((gender == "Male") && (result ==3 )) {
+        document.getElementById("result").innerHTML = "you born on wednesday with akan name'Kwaku'";
+}
+if ((gender == "Male") && (result ==4 )) {
+        document.getElementById("result").innerHTML = "you born on thursday with akan name'Yaw'";
+}
+if ((gender == "Male") && (result == 5)) {
+        document.getElementById("result").innerHTML = "you born on friday  with akan name'Kofi'";
+}
+if ((gender == "Male") && (result ==6 )) {
+        document.getElementById("result").innerHTML = "you born on  sunday with akan name'Kwame'";
+}
+}
+    </script>
     
 </body>
 </html>
